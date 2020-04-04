@@ -3,12 +3,12 @@ calls = 0;
 pos = [X]; 
 out_pos = [X];
 function [retval] = oracle(x)
-  retval = (x <= 1) && sum(x < 0) == 0;
+  retval = (x <= 2) && sum(x < 0) == 0;
 endfunction
 
 delta = .989;
 figure(); 
-for j =1:10000;
+for j =1:100;
  for i = 1:100;
   tmpx = X + unifrnd(0, delta, 1, 3);
   if(oracle(tmpx))
