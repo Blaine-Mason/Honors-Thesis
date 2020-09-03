@@ -1,0 +1,55 @@
+/* COLORS */
+body { color: #333; }
+h1, h2, h3, h4, h5 { color: #555; }
+a:link, a:visited { color:#00f; }
+a:focus, a:hover { color:#55f; }
+b, .loud { color:#000; }
+dd { background-color:#eee;}
+pre { color:#666; }
+.todo { background-color:#fcc; }
+.alert { background-color:#faa; color:#333; padding:0px 4px;}
+.definition { background-color:#eee; border:1px solid #ddd}
+.caution { background-color:#F99; border: 1px solid #700; }
+hr { color:#eee; background-color:#eee; }
+
+/* FONTS */
+body { font-family:verdana; font-size: 13px; }
+h1, h2, h3, h4, h5 { font-family: 'Trebuchet MS'; }
+h1, h2, h3, h4, b { font-weight:normal; }
+h1 { font-size:2.4em; }
+h2 { font-size:1.8em; }
+h3 { font-size:1.5em; }
+h4 { font-size:1.2em; }
+dt { font-style: italic; }
+.definition, .caution { font-style:italic; font-size:14px; }
+
+/* MARGINS AND DIMENSIONS */
+body { margin: 0px auto 20px auto; width: 800px; }
+dt {  margin: 1em 0em 0.2em 0em; }
+h1 { margin: 1.2em 0em; }
+h2 { margin: 1em 0em; }
+h3 { margin: 0.8em 0em; }
+/*h1 { margin: 1.5em 0em 0.8em -1.2em; }
+h2 { margin: 1.2em 0em 0.6em -0.8em; }
+h3 { margin: 0.8em 0em 0.5em -0.6em; }
+h4 { margin: 0.5em 0px 0.5em -0.4em; } */
+p { margin: 0.8em 0em 0em 0em; }
+.definition, .caution {  padding:0.2em; margin: 1.5em 0em 0.5em 0em }
+.imgcaution { float: right;position:relative; left:60px; top:-10px; }
+hr { height:1px; }
+
+/* BORDERS AND DECORATIONS */
+a { text-decoration: none; }
+pre.prettyprint { padding:10px; }
+
+/*MISC */
+h1, h2, h3, h4, h5, .clear { clear:both; }
+
+.illustration { float:right; width:360px; padding:2px; 
+                border:1px solid #ccc; margin:0px 0px 20px 20px; }
+
+
+
+
+
+

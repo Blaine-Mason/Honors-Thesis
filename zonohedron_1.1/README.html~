@@ -1,0 +1,104 @@
+<html>
+<head>
+ <title>Zonohedron</title>
+ <link rel="stylesheet" href="css/style.css" type="text/css" media="all"/>
+</head>
+<body>
+<h1>Zonohedron</h1>
+
+<img class="illustration" src="img/10v_20deg.png"/>
+<p>Zonohedron is a simple command-line program that computes a <a href="http://en.wikipedia.org/wiki/Zonohedron">zonohedron</a> out of a
+collection of 3D vectors.</p>
+<p>It's written in C++ without dependencies and thus available for every platform, it's quite fast and can process zonohedra with
+thousands of generators in a short time.</p>
+
+<p>Here could be a good place to explain why this program was created and what is its purpouse, and a link to the paper, and
+attribution to the institution paying for it.</p>
+
+<h2>Download</h2>
+
+<p><a href="zonohedron_1.0.zip">zonohedron_1.0.zip</a>: source code and documentation</p>
+<!-- <p><a href="zonohedron_1.0_win.zip">zonohedron_1.0_win.zip</a>: windows executables</p> -->
+
+<h2>Compile</h2>
+
+<p>If you have Qt installed, just use the .pro included, otherwise</p>
+<p>on Linux/Mac: </p>
+<pre>
+g++ zonohedron.cpp -o zonohedron
+g++ generator.cpp -o generator
+</pre>
+
+<p>on Windows: create a new project in your favorite IDE and include zonohedron.cpp</p>
+
+
+<h2>Usage and output</h2>
+<img class="illustration" src="img/300v_30deg.png"/>
+<pre>./zonohedron input.txt output.obj</pre>
+
+<p>The input file is a text file with one generator vector per line:</p>
+
+<pre>
+0.388473 0.199726 0.364303
+0.519182 0.144312 0.216584
+0.250367 0.445088 0.391104
+...
+</pre>
+
+<p>The program saves the resulting zonohedron as a mesh in <a href="http://en.wikipedia.org/wiki/Wavefront_.obj_file">OBJ</a> format.</p>
+<p>The programs computes also</p>
+<ul>
+<li>the volume of the zonohedra</li>
+<li>the solid angle at the origin </li>
+<li>the list of generators on the boundary of the solid angle</li>
+</ul>
+<p>Assumes all vectors have positive coordinates for the last two.</p>
+
+
+
+
+<h2>Visualize</h2>
+
+<p>OBJ is a standard format and most mesh viewer will be able to visualize it. I recommend <a href="http://meshlab.org">Meshlab</a>.</p>
+
+
+<h2>Gini index graph</h2>
+<p>You can use the program to visualize how the gini index varies adding a new vector.</p>
+<pre>./zonohedron input.txt gini &lt;x range&gt; &lt;y range&gt; &lt;z value&gt; &lt;x step&gt; &lt;y step&gt;</pre>
+
+<p>For each (x, y, z) where x varies from 0 to x range in increments of x step, y from 0 to y range in increments of y step 
+and z is fixed at z value the program will compute the Gini index of the input vectors plu (x, y, z) and write the results
+on standard output in a gnuplot-friendly format.</p>
+
+<p>You can plot the result using the following gnuplot commands</p>
+<pre>
+~$./zonohedron input.txt gini 10 10 5 0.5 0.5 > gini.txt
+~$gnuplot
+
+set style line 1 lt 4 lw .5
+set pm3d at s hidden3d 1
+unset surf
+set zrange[0: 1]
+set palette defined ( 0 "blue", 1 "cyan", 2 "green", 3 "yellow", 4 "red", 5 "red")
+splot 'gini.txt' notitle
+
+#following commands to print to pdf
+set output gini.pdf
+set term pdfcairo
+replot
+unset output
+</pre>
+
+<h2>Generator</h2>
+
+<p><code>generator.cpp</code> is a tool to generate random zonohedra while controlling the angle spread and the length spread
+of the vectors.</p>
+
+<pre>./generator number_of_generators max_angle max_length > random.txt</pre>
+
+<h2>Credits and Contacts</h2>
+
+<p>Code: Federico Ponchio. (ponchio@gmail.com)</p>
+
+</body>
+</html>
